@@ -96,4 +96,23 @@ public class HeloController {
 		mav.addObject("datalist", list);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/edit", method = RequestMethod.POST)
+	public ModelAndView editpost(
+			@RequestParam("id") String id, 
+			@RequestParam("code") String code,
+			@RequestParam("name") String name,
+			@RequestParam("Gender") String Gender, 
+			@RequestParam("Age") int Age,
+			@RequestParam("Height") double Height, 
+			@RequestParam("Weight") double Weight,
+			ModelAndView mov) 
+	{
+		
+		MyDataMongo mydata = new MyDataMongo(name, code, Gender, Age, Height, Weight);
+		repository.save(mydata);
+		repository.deleteById(id);
+		
+		return new ModelAndView("redirect:/");
+	}
 }
