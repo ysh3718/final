@@ -83,4 +83,17 @@ public class HeloController {
 		repository.deleteById(id);
 		return new ModelAndView("redirect:/");
 	}
+	
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+	public ModelAndView edit(@PathVariable("id") String id, ModelAndView mav) {
+		
+		mav.setViewName("edit");
+		mav.addObject("title", "Edit Page");
+		mav.addObject("msg", "수정할 데이터를 입력해주세요.");
+		
+		List<MyDataMongo> list = repository.findById(id);
+		
+		mav.addObject("datalist", list);
+		return mav;
+	}
 }
