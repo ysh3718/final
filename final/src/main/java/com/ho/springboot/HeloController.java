@@ -32,4 +32,10 @@ public class HeloController {
 		return mav;
 	}
 
+	@RequestMapping(value="/insert", method=RequestMethod.GET)
+	public ModelAndView insert(ModelAndView mav) {
+		mav.setViewName("insert");
+		return mav;
+	}
+	
 }
