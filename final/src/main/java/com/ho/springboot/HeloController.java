@@ -4,14 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ho.springboot.MyDataMongo;
 import com.ho.springboot.repositories.MyDataMongoRepository;
 
 @Controller
@@ -31,8 +29,8 @@ public class HeloController {
 	 *
 	 * @param 	mav ModelAndView
 	 *
-	 * @remark 	웹 페이지를 불러오기 위한 초기페이지 설정		[2019-06-17; 양승호] \n
-	 * 		   	FinaAll()를 이용해 list에 모든 데이터를 저장	[2019-06-17; 양승호] \n
+	 * @remark 	웹 페이지를 불러오기 위한 초기페이지 설정			[2019-06-17; 양승호] \n
+	 * 		   	FinaAll()를 이용해 list에 모든 데이터를 저장		[2019-06-17; 양승호] \n
 	 *
 	 */
 	
@@ -59,7 +57,7 @@ public class HeloController {
 	 *
 	 * @param	mav ModelAndView
 	 *
-	 * @remark 	insert 웹 페이지를 불러오기 위한 초기페이지 설정[2019-06-17; 양승호] \n
+	 * @remark 	insert 웹 페이지를 불러오기 위한 초기페이지 설정	[2019-06-17; 양승호] \n
 	 *
 	 */
 	
@@ -82,13 +80,12 @@ public class HeloController {
 	 *
 	 * @param 	mav ModelAndView
 	 *
-	 * @remark	폼에 입력된 값을 받아온 후 객체에 저장			[2019-06-17; 양승호] \n
-	 *		   	save 메소드를 이용해 DB에 값 저장			[2019-06-17; 양승호] \n
+	 * @remark	폼에 입력된 값을 받아온 후 객체에 저장				[2019-06-17; 양승호] \n
+	 *		   	save 메소드를 이용해 DB에 값 저장				[2019-06-17; 양승호] \n
 	 *
 	 */
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
-	@Transactional(readOnly=false)
 	public ModelAndView form(
 			@RequestParam("id") String id, 
 			@RequestParam("code") String code,
@@ -102,8 +99,24 @@ public class HeloController {
 
 		MyDataMongo mydata = new MyDataMongo(name, code, Gender, Age, Height, Weight);
 		repository.save(mydata);	//db에 값 저장
+		
 		return new ModelAndView("redirect:/");
 	}
+	
+	/**
+	 *
+	 * @fn 		public ModelAndView detail(ModelAndView mav)
+	 * 
+	 * @brief 	상세 조회 페이지
+	 *
+	 * @author 	양승호
+	 * @date 	2019-06-17
+	 *
+	 * @param 	mav ModelAndView
+	 *
+	 * @remark	findByid 를 이용한 조건검색 후 출력				[2019-06-17; 양승호] \n
+	 *
+	 */
 	
 	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
 	public ModelAndView detail(@PathVariable("id") String id, ModelAndView mav) {
