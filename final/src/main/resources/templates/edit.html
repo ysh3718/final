@@ -78,6 +78,11 @@ table.navi tr td {
 				<td><input type="text" name="Weight" th:value = "${obj.Weight}"></td>
 			</tr>
 			<tr>
+				<td><label for="Gender">성별</label></td>
+				<td><label><input type="radio" name="Gender" th:value = "${obj.Gender}">남성</label>
+				<lable><input type="radio" name="Gender" th:value = "${obj.Gender}"></lable>여성</td>
+			</tr>
+			<tr>
 				<td></td>
 				<td>
 					<input type="submit" value = "수정"/>
