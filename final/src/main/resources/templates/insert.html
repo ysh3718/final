@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>top page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+h1 {
+	font-size: 18pt;
+	font-weight: bold;
+	color: gray;
+}
+
+body {
+	font-size: 13pt;
+	color: gray;
+	margin: 5px 25px;
+}
+
+tr {
+	margin: 5px;
+}
+
+th {
+	padding: 5px;
+	color: white;
+	background: darkgray;
+}
+
+td {
+	padding: 5px;
+	color: black;
+	background: #e0e0ff;
+}
+
+table.navi {
+	width: 100%;
+	background: white;
+}
+
+table.navi tr {
+	background: white;
+}
+
+table.navi tr td {
+	background: white;
+}
+
+.err {
+	color: red;
+}
+</style>
+</head>
+<body>
+	<h1 th:text="#{content.title}">Helo page</h1>
+	<p th:text="${msg}"></p>
+	
+	<table>
+		<form method="post" action="/insert">
+		<input type="hidden" name="id" th:value="*{id}" />
+			<tr>
+				<td><label for="name">이름</label></td>
+				<td><input type="text" name="name" /></td>
+			</tr>
+			<tr>
+				<td><label for="code">회원번호</label></td>
+				<td><input type="text" name="code" /></td>
+			</tr>
+			<tr>
+				<td><label for="Age">나이</label></td>
+				<td><input type="text" name="Age" /></td>
+			</tr>
+			<tr>
+				<td><label for="Height">키(CM)</label></td>
+				<td><input type="text" name="Height" /></td>
+			</tr>
+			<tr>
+				<td><label for="Weight">몸무게(KG)</label></td>
+				<td><input type="text" name="Weight" /></td>
+			</tr>
+			<tr>
+				<td><label for="Gender">성별</label></td>
+				<td><label><input type="radio" name="Gender" value="남자">남자</label>
+					<label><input type="radio" name="Gender" value="여자">여자</label></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="submit" value = "저장"/>
+					</form>
+					<a th:href="@{'/'}"><button>취소</button></a>
+				</td>
+			</tr>
+
+		
+	</table>
+</body>
+</html>
