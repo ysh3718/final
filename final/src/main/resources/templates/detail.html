@@ -72,11 +72,11 @@ table.navi tr td {
 		</tr>
 		<tr>
 			<td>키</td>
-			<td th:text="${obj.Height}"></td>
+			<td th:text="|${obj.Height}cm|"></td>
 		</tr>
 		<tr>
 			<td>몸무게</td>
-			<td th:text="${obj.Weight}"></td>
+			<td th:text="|${obj.Weight}KG|"></td>
 		</tr>
 		<tr>
 			<td>성별</td>
@@ -84,7 +84,7 @@ table.navi tr td {
 		</tr>
 		<tr>
 			<td>기초대사량</td>
-			<td th:text="${obj.Basicmetabolic}"></td>
+			<td th:text="|${obj.Basicmetabolic}kcal|"></td>
 		</tr>
 		<tr>
 			<td>작성날짜</td>
