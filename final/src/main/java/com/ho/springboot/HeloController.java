@@ -66,4 +66,15 @@ public class HeloController {
 		mav.addObject("datalist", list);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public ModelAndView removecheck(@PathVariable("id") String id, ModelAndView mav) {
+		mav.setViewName("delete");
+		mav.addObject("title", "Delete Page");
+		mav.addObject("msg", "삭제 유무 확인");
+
+		List<MyDataMongo> list = repository.findById(id);
+		mav.addObject("datalist", list);
+		return mav;
+	}
 }
