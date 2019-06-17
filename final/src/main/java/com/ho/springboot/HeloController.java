@@ -48,6 +48,21 @@ public class HeloController {
 		return mav;
 	}
 
+	/**
+	 *
+	 * @fn 		public ModelAndView insert(ModelAndView mav)
+	 * 
+	 * @brief 	입력 페이지 설정 
+	 *
+	 * @author 	양승호
+	 * @date 	2019-06-17
+	 *
+	 * @param	mav ModelAndView
+	 *
+	 * @remark 	insert 웹 페이지를 불러오기 위한 초기페이지 설정[2019-06-17; 양승호] \n
+	 *
+	 */
+	
 	@RequestMapping(value="/insert", method=RequestMethod.GET)
 	public ModelAndView insert(ModelAndView mav) {
 		mav.setViewName("insert");
