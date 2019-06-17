@@ -77,4 +77,10 @@ public class HeloController {
 		mav.addObject("datalist", list);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public ModelAndView remove(@RequestParam("id") String id, ModelAndView mav) {
+		repository.deleteById(id);
+		return new ModelAndView("redirect:/");
+	}
 }
