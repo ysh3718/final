@@ -55,4 +55,15 @@ public class HeloController {
 		repository.save(mydata);	//db에 값 저장
 		return new ModelAndView("redirect:/");
 	}
+	
+	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
+	public ModelAndView detail(@PathVariable("id") String id, ModelAndView mav) {
+		mav.setViewName("detail");
+		mav.addObject("title", "Detail Page");
+		mav.addObject("msg", "상세 조회 및 수정 삭제");
+
+		List<MyDataMongo> list = repository.findById(id);
+		mav.addObject("datalist", list);
+		return mav;
+	}
 }
