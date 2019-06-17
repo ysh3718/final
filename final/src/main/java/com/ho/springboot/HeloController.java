@@ -20,6 +20,22 @@ public class HeloController {
 	@Autowired
 	MyDataMongoRepository repository;
 	
+	/**
+	 *
+	 * @fn 		public ModelAndView index(ModelAndView mav)
+	 * 
+	 * @brief 	메인 페이지 설정 
+	 *
+	 * @author 	양승호
+	 * @date 	2019-06-17
+	 *
+	 * @param 	mav ModelAndView
+	 *
+	 * @remark 	웹 페이지를 불러오기 위한 초기페이지 설정		[2019-06-17; 양승호] \n
+	 * 		   	FinaAll()를 이용해 list에 모든 데이터를 저장	[2019-06-17; 양승호] \n
+	 *
+	 */
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index(ModelAndView mav) {
 
