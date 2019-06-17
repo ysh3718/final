@@ -29,7 +29,15 @@ public class MyDataMongo {
 		this.Age = Age;
 		this.Height = Height;
 		this.Weight = Weight;
-		this.Basicmetabolic = Basicmetabolic;
+		if("남자".equals(Gender)) {
+			this.Basicmetabolic = 66.47+(13.75*Weight)+(5*Height)-(6.76*Age);
+		   }
+		else if("여자".equals(Gender)){
+			this.Basicmetabolic = 665.1+(9.56*Weight)+(1.85*Height)-(4.68*Age);
+		      }
+		else {
+			System.out.printf("오류입니다.");
+		   }
 	}
 
 	public String getId() {
